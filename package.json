@@ -1,0 +1,27 @@
+{
+  "name": "math-facts-website",
+  "version": "0.0.1",
+  "description": "KA Math Facts Website",
+  "main": "index.jsx",
+  "repository": {
+    "type": "git",
+    "url": "..."
+  },
+  "keywords": [
+    "..."
+  ],
+  "devDependencies": {
+    "babel-core": "^5.1.10",
+    "babel-eslint": "^4.0.5",
+    "babel-loader": "^5.0.0",
+    "eslint": "^1.1.0",
+    "http-server": "^0.8.0",
+    "webpack": "^1.8.4",
+    "webpack-dev-server": "^1.8.0"
+  },
+  "dependencies": {
+    "react": "^0.14.1",
+    "react-art": "^0.13.0",
+    "react-dom": "^0.14.2"
+  }
+}
