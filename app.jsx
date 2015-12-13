@@ -1,5 +1,9 @@
+"use strict";
+
 const { StyleSheet, css } = require("./lib/aphrodite.js");
 const React = require("react");
+
+import SignupForm from "./components/signup-form.js";
 
 const App = React.createClass({
 
@@ -59,84 +63,7 @@ const App = React.createClass({
                     and give us feedback on how it can be better please sign
                     up below!
                 </div>
-                <form className={css(ST.form)}>
-                    <div className={css(ST.formRow)}>
-                        <label className={css(ST.srOnly)} htmlFor="your-name">
-                            Name
-                        </label>
-                        <input
-                            id="your-name"
-                            className={css(ST.input)}
-                            type="text"
-                            placeholder="Your name"
-                        />
-                        <label className={css(ST.srOnly)} htmlFor="your-email">
-                            Name
-                        </label>
-                        <input
-                            id="your-email"
-                            className={css(ST.input)}
-                            type="text"
-                            placeholder="Your email"
-                        />
-                    </div>
-                    <div className={css(ST.formRow)}>
-                        <label className={css(ST.srOnly)} htmlFor="phone-type">
-                            What type of phone do you have?
-                        </label>
-                        <input
-                            id="phone-type"
-                            className={css(ST.input, ST.inputLarge)}
-                            type="text"
-                            placeholder={"What type of phone do you have? " +
-                                "(iPhone 5s, Nexus 5, etc)"}
-                        />
-                    </div>
-                    <div className={css(ST.formTitleRow)}>
-                        Who will use this app?
-                        // TODO: checkbox for "do you want to give feedback?"
-                    </div>
-                    <div className={css(ST.formRow)}>
-                        <label
-                            className={css(ST.srOnly)}
-                            htmlFor={`name-${1}`}
-                        >
-                            Name
-                        </label>
-                        <input
-                            id={`name-${1}`}
-                            className={css(ST.input)}
-                            type="text"
-                            placeholder="Name"
-                        />
-                        <label
-                            className={css(ST.srOnly)}
-                            htmlFor={`name-${1}`}
-                        >
-                            Age
-                        </label>
-                        <input
-                            id={`age-${1}`}
-                            className={css(ST.input)}
-                            type="text"
-                            placeholder="Age"
-                        />
-                    </div>
-                    <div className={css(ST.formRow)}>
-                        <button
-                            className={css(ST.button)}
-                        >
-                            + Add another person
-                        </button>
-                    </div>
-                    <div className={css(ST.formRow)}>
-                        <input
-                            className={css(ST.button)}
-                            type="submit"
-                            value="Request Invitation"
-                        />
-                    </div>
-                </form>
+                <SignupForm />
             </div>
         </div>);
     }
@@ -234,50 +161,6 @@ const ST = StyleSheet.create({
         fontSize: 36,
         marginBottom: 10,
         textAlign: "center",
-    },
-    form: {
-        marginTop: 30,
-        marginBottom: 100,
-    },
-    formRow: {
-        margin: "10px 0",
-    },
-    formTitleRow: {
-        fontSize: 22,
-        margin: "20px 0 10px",
-    },
-    input: {
-        fontFamily: "inherit",
-        fontSize: "inherit",
-        fontWeight: "inherit",
-        margin: "0 3px",
-        maxWidth: 200,
-        padding: 10,
-        width: "100%",
-    },
-    inputLarge: {
-        maxWidth: 400 + 6,
-    },
-    button: {
-        background: "transparent",
-        border: "1px solid #4FAD4E",
-        borderRadius: 50,
-        color: "#4FAD4E",
-        cursor: "pointer",
-        fontFamily: "inherit",
-        fontSize: 18,
-        fontWeight: "inherit",
-        padding: "7px 25px",
-        ":hover": {
-            background: "#4FAD4E",
-            color: "#fff",
-            outline: "none",
-        },
-        ":focus": {
-            background: "#4FAD4E",
-            color: "#fff",
-            outline: "none",
-        },
     },
 });
 

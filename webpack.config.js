@@ -3,11 +3,12 @@ module.exports = {
     output: {
         filename: 'bundle.js',
     },
+    devtool: 'eval',
     module: {
         loaders: [
             {
-                // tell webpack to use babel for all *.jsx files
-                test: /\.jsx$/,
+                // tell webpack to use babel for all *.js and *.jsx files
+                test: /\.jsx?$/,
                 loader: 'babel-loader'
             }
         ]
