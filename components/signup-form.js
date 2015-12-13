@@ -229,6 +229,8 @@ const SignupForm = React.createClass({
     },
 });
 
+
+const smallSize = "500px";
 const ST = StyleSheet.create({
     srOnly: {
         position: "absolute",
@@ -257,6 +259,9 @@ const ST = StyleSheet.create({
         maxWidth: 200,
         padding: 10,
         width: "100%",
+        [`@media (max-width: ${smallSize})`]: {
+            maxWidth: "100%",
+        },
     },
     inputLarge: {
         maxWidth: 400 + 6,
@@ -331,13 +336,27 @@ const ST = StyleSheet.create({
         fontSize: 24,
         marginRight: -30,
         textAlign: "center",
-        transition: "color 0.1s",
+        transition: "all 0.1s",
         width: 30,
         ":hover": {
             color: "#333",
         },
         ":focus": {
             color: "#333",
+        },
+        [`@media (max-width: ${smallSize})`]: {
+            background: "rgba(0, 0, 0, 0.05)",
+            borderRadius: "0 0 5px 5px",
+            lineHeight: 1,
+            margin: "0 3px",
+            paddingBottom: 5,
+            width: "100%",
+            ":hover": {
+                background: "rgba(0, 0, 0, 0.1)",
+            },
+            ":focus": {
+                background: "rgba(0, 0, 0, 0.1)",
+            },
         },
     },
 });

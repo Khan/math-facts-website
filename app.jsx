@@ -121,6 +121,7 @@ const App = React.createClass({
     }
 });
 
+const smallSize = "500px";
 const ST = StyleSheet.create({
     srOnly: {
         position: "absolute",
@@ -134,15 +135,22 @@ const ST = StyleSheet.create({
     page: {
         color: "#555",
         height: "100%",
+        fontSize: 16,
         fontWeight: 100,
         lineHeight: 1.5,
         textAlign: "center",
+        [`@media (max-width: ${smallSize})`]: {
+            fontSize: 14,
+        },
     },
     appName: {
         fontSize: 24,
         fontWeight: 100,
         marginBottom: 10,
         textAlign: "center",
+        [`@media (max-width: ${smallSize})`]: {
+            fontSize: 20,
+        },
     },
     tagline: {
     },
@@ -164,13 +172,18 @@ const ST = StyleSheet.create({
         verticalAlign: "text-bottom",
     },
     appIcon: {
-        width: 100,
         display: "block",
+        width: "100%",
     },
     iconWrapper: {
         background: "#29abca",
         borderRadius: 20,
         display: "inline-block",
+        width: 100,
+        [`@media (max-width: ${smallSize})`]: {
+            borderRadius: 15,
+            width: 75,
+        },
     },
     splashContainer: {
         position: "relative",
@@ -213,6 +226,9 @@ const ST = StyleSheet.create({
         fontSize: 36,
         marginBottom: 10,
         textAlign: "center",
+        [`@media (max-width: ${smallSize})`]: {
+            fontSize: 24,
+        },
     },
     formSection: {
         paddingBottom: 100,
@@ -224,6 +240,10 @@ const ST = StyleSheet.create({
         fontSize: 15,
         marginTop: 20,
         padding: "10px 15px",
+        [`@media (max-width: ${smallSize})`]: {
+            fontSize: 12,
+            padding: 10,
+        },
     },
     successMessage: {
         backgroundColor: "#fff",
