@@ -87,7 +87,7 @@ const App = React.createClass({
                     </div>
                 </div>
             </div>
-            <div className={css(ST.content, ST.formSection)}>
+            <div className={css(ST.content)}>
                 <h2 className={css(ST.title)}>
                     Sign up to get an invitation
                 </h2>
@@ -117,6 +117,12 @@ const App = React.createClass({
                 </div>
                 }
             </div>
+            <div className={css(ST.divider)} />
+            <div className={css(ST.content)}>
+                <h2 className={css(ST.title)}>
+                    What is this app?
+                </h2>
+            </div>
         </div>);
     }
 });
@@ -134,11 +140,11 @@ const ST = StyleSheet.create({
 
     page: {
         color: "#555",
-        height: "100%",
         fontSize: 16,
         fontWeight: 100,
         lineHeight: 1.5,
         textAlign: "center",
+        marginBottom: 100,
         [`@media (max-width: ${smallSize})`]: {
             fontSize: 14,
         },
@@ -230,10 +236,6 @@ const ST = StyleSheet.create({
             fontSize: 24,
         },
     },
-    formSection: {
-        paddingBottom: 100,
-    },
-
     message: {
         border: "1px solid transparent",
         borderRadius: 5,

@@ -252,6 +252,7 @@ const ST = StyleSheet.create({
         margin: "20px 0 10px",
     },
     input: {
+        border: "1px solid #ddd",
         fontFamily: "inherit",
         fontSize: "inherit",
         fontWeight: "inherit",
@@ -259,6 +260,10 @@ const ST = StyleSheet.create({
         maxWidth: 200,
         padding: 10,
         width: "100%",
+        ":focus": {
+            border: "1px solid #56B5F8",
+            outline: "none",
+        },
         [`@media (max-width: ${smallSize})`]: {
             maxWidth: "100%",
         },
@@ -343,6 +348,7 @@ const ST = StyleSheet.create({
         },
         ":focus": {
             color: "#333",
+            outline: "none",
         },
         [`@media (max-width: ${smallSize})`]: {
             background: "rgba(0, 0, 0, 0.05)",
