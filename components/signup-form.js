@@ -2,9 +2,11 @@
 
 import { StyleSheet, css }  from "../lib/aphrodite.js";
 import React from "react";
-import Firebase from 'firebase';
 
 const SignupForm = React.createClass({
+    propTypes: {
+        handleSubmit: React.PropTypes.func.isRequired,
+    },
     getInitialState: function() {
         return {
             name: "",
@@ -21,19 +23,7 @@ const SignupForm = React.createClass({
     },
     handleSubmit: function(e) {
         e.preventDefault();
-        const firebaseURL = "https://math-facts-signup.firebaseio.com/";
-        const firebaseRef = new Firebase(firebaseURL);
-        firebaseRef.push({
-            ...this.state,
-            timestampInMilliseconds: Date.now(),
-        }, (Error) => {
-            console.log(Error)
-            if (Error == null) {
-                // success
-            } else {
-                // something went wrong :(
-            }
-        });
+        this.props.handleSubmit(this.state);
     },
     render: function() {
         const {
@@ -250,7 +240,6 @@ const ST = StyleSheet.create({
     },
     form: {
         marginTop: 30,
-        marginBottom: 100,
     },
     formRow: {
         margin: "10px 0",

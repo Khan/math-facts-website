@@ -1,13 +1,47 @@
 "use strict";
 
-const { StyleSheet, css } = require("./lib/aphrodite.js");
-const React = require("react");
+import { StyleSheet, css } from "./lib/aphrodite.js";
+import React from "react";
+import Firebase from 'firebase';
 
 import SignupForm from "./components/signup-form.js";
 
 const App = React.createClass({
-
+    handleSubmit: function(state) {
+        const firebaseURL = "https://math-facts-signup.firebaseio.com/";
+        const firebaseRef = new Firebase(firebaseURL);
+        firebaseRef.push({
+            ...state,
+            timestampInMilliseconds: Date.now(),
+        }, (Error) => {
+            console.log(Error)
+            if (Error == null) {
+                // success
+                this.setState({
+                    formErrors: false,
+                    formComplete: true,
+                });
+            } else {
+                // something went wrong :(
+                this.setState({
+                    formErrors: true,
+                }, () => {
+                    window.scrollTo(0, this.errorMessage.offsetTop - 10);
+                });
+            }
+        });
+    },
+    getInitialState: function() {
+        return {
+            formComplete: false,
+            formErrors: false,
+        };
+    },
     render: function() {
+        const {
+            formComplete,
+            formErrors,
+        } = this.state;
 
         return (<div className={css(ST.page)}>
             <div className={css(ST.content)}>
@@ -63,7 +97,25 @@ const App = React.createClass({
                     and give us feedback on how it can be better please sign
                     up below!
                 </div>
-                <SignupForm />
+                {formComplete ?
+                <div className={css(ST.message, ST.successMessage)}>
+                    Thank you for applying! We'll be in contact very soon. :)
+                </div> : <div>
+                    {formErrors && <div
+                        className={css(
+                            ST.message,
+                            ST.errorMessage
+                        )}
+                        ref={(ref) => this.errorMessage = ref}
+                    >
+                        Oops! It looks like there's a field left blank.
+                        Please fill out the full form to apply!
+                    </div>}
+                    <SignupForm
+                        handleSubmit={this.handleSubmit}
+                    />
+                </div>
+                }
             </div>
         </div>);
     }
@@ -156,11 +208,29 @@ const ST = StyleSheet.create({
         maxWidth: 600,
         margin: "0 auto",
         padding: 20,
+        paddingBottom: 100,
     },
     title: {
         fontSize: 36,
         marginBottom: 10,
         textAlign: "center",
+    },
+
+    message: {
+        borderRadius: 5,
+        fontSize: 15,
+        marginTop: 20,
+        padding: "10px 15px",
+    },
+    successMessage: {
+        backgroundColor: "#dff0d8",
+        borderColor: "#d6e9c6",
+        color: "#3c763d",
+    },
+    errorMessage: {
+        backgroundColor: "#f2dede",
+        borderColor: "#ebccd1",
+        color: "#a94442",
     },
 });
 
