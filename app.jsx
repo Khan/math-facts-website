@@ -87,7 +87,7 @@ const App = React.createClass({
                     </div>
                 </div>
             </div>
-            <div className={css(ST.content)}>
+            <div className={css(ST.content, ST.formSection)}>
                 <h2 className={css(ST.title)}>
                     Sign up to get an invitation
                 </h2>
@@ -99,7 +99,7 @@ const App = React.createClass({
                 </div>
                 {formComplete ?
                 <div className={css(ST.message, ST.successMessage)}>
-                    Thank you for applying! We'll be in contact very soon. :)
+                    Thank you for applying! We'll be in contact very soon.
                 </div> : <div>
                     {formErrors && <div
                         className={css(
@@ -208,24 +208,28 @@ const ST = StyleSheet.create({
         maxWidth: 600,
         margin: "0 auto",
         padding: 20,
-        paddingBottom: 100,
     },
     title: {
         fontSize: 36,
         marginBottom: 10,
         textAlign: "center",
     },
+    formSection: {
+        paddingBottom: 100,
+    },
 
     message: {
+        border: "1px solid transparent",
         borderRadius: 5,
         fontSize: 15,
         marginTop: 20,
         padding: "10px 15px",
     },
     successMessage: {
-        backgroundColor: "#dff0d8",
+        backgroundColor: "#fff",
         borderColor: "#d6e9c6",
-        color: "#3c763d",
+        color: "#4FAD4E",
+        padding: "20px 15px",
     },
     errorMessage: {
         backgroundColor: "#f2dede",
