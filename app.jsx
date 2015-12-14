@@ -131,7 +131,7 @@ const App = React.createClass({
                 </div>
                 <div className={css(ST.text)}>
                     This app is meant to help learners of any age practice
-                    their multiplication and additon facts and commit them to
+                    their multiplication and addition facts and commit them to
                     long term memory.
                 </div>
                 <div className={css(ST.text)}>
