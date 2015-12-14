@@ -224,7 +224,7 @@ const ST = StyleSheet.create({
         position: "relative",
     },
     splash: {
-        background: "url(../images/background.jpg)",
+        background: "url(images/background.jpg)",
         backgroundPosition: "center",
         backgroundSize: "cover",
     },
