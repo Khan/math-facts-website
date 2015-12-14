@@ -148,7 +148,7 @@ const SignupForm = React.createClass({
                     <div>
                         If you don't have an iPad or iPhone let us know what
                         devices you do have and we'll let you know when
-                        your device is supported!
+                        your device is supported.
                     </div>
                 </div>
             </div>

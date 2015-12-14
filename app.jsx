@@ -95,7 +95,7 @@ const App = React.createClass({
                     This app isn't available on the app store yet because
                     it's still being built. If you'd like to get it early
                     and give us feedback on how it can be better please sign
-                    up below!
+                    up below.
                 </div>
                 {formComplete ?
                 <div className={css(ST.message, ST.successMessage)}>
@@ -109,7 +109,7 @@ const App = React.createClass({
                         ref={(ref) => this.errorMessage = ref}
                     >
                         Oops! It looks like there's a field left blank.
-                        Please fill out the full form to apply!
+                        Please fill out the full form to apply.
                     </div>}
                     <SignupForm
                         handleSubmit={this.handleSubmit}
@@ -122,6 +122,35 @@ const App = React.createClass({
                 <h2 className={css(ST.title)}>
                     What is this app?
                 </h2>
+                <div className={css(ST.text)}>
+                    At Khan Academy we want to make a free world-class
+                    education available to everyone, everywhere. Being fluent
+                    in basic numeracy opens so many doors in education and
+                    life, so we want to make sure that everyone has access
+                    to dedicated practice for building those skills.
+                </div>
+                <div className={css(ST.text)}>
+                    This app is meant to help learners of any age practice
+                    their multiplication and additon facts and commit them to
+                    long term memory.
+                </div>
+                <div className={css(ST.text)}>
+                    Right now we've only just begun working on this app. We're
+                    looking for a few volunteers to try out the app now and
+                    give us feedback on how it can be better. Your feedback
+                    will help us make the best app to help you, your child,
+                    your student, and everyone else who downloads the app.
+                </div>
+                <div className={css(ST.text)}>
+                    Thank you for helping make education more accessible to
+                    the world!
+                </div>
+                <img
+                    className={css(ST.avatars)}
+                    src="./images/avatars.png"
+                    alt=""
+                />
+
             </div>
         </div>);
     }
@@ -144,7 +173,7 @@ const ST = StyleSheet.create({
         fontWeight: 100,
         lineHeight: 1.5,
         textAlign: "center",
-        marginBottom: 100,
+        marginBottom: 50,
         [`@media (max-width: ${smallSize})`]: {
             fontSize: 14,
         },
@@ -236,6 +265,9 @@ const ST = StyleSheet.create({
             fontSize: 24,
         },
     },
+    text: {
+        marginBottom: 20,
+    },
     message: {
         border: "1px solid transparent",
         borderRadius: 5,
@@ -257,6 +289,11 @@ const ST = StyleSheet.create({
         backgroundColor: "#f2dede",
         borderColor: "#ebccd1",
         color: "#a94442",
+    },
+    avatars: {
+        marginTop: 20,
+        maxWidth: "100%",
+        width: 300,
     },
 });
 
