@@ -95,13 +95,13 @@ const SignupForm = React.createClass({
         >
             <div className={css(ST.formRow)}>
                 <label className={css(ST.srOnly)} htmlFor="your-name">
-                    Name
+                    Parent Name
                 </label>
                 <input
                     id="your-name"
                     className={css(ST.input)}
                     type="text"
-                    placeholder="Your name"
+                    placeholder="Parent Name"
                     value={name}
                     onChange={(event) => {
                         this.setState({
@@ -110,13 +110,13 @@ const SignupForm = React.createClass({
                     }}
                 />
                 <label className={css(ST.srOnly)} htmlFor="your-email">
-                    Your name
+                    Parent Email
                 </label>
                 <input
                     id="your-email"
                     className={css(ST.input)}
                     type="text"
-                    placeholder="Your email"
+                    placeholder="Parent Email"
                     value={email}
                     onChange={(event) => {
                         this.setState({
