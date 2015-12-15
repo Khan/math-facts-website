@@ -12,12 +12,6 @@ const SignupForm = React.createClass({
             name: "",
             email: "",
             device: "",
-            users: [
-                {
-                    name: "",
-                    age: "",
-                },
-            ],
             participation: "",
         };
     },
@@ -33,62 +27,6 @@ const SignupForm = React.createClass({
             participation,
         } = this.state;
 
-        const users = JSON.parse(JSON.stringify(this.state.users));
-        const userRows = [];
-        for (let i = 0; i < users.length; i++) {
-            userRows.push(<div className={css(ST.formRow)} key={i}>
-                <label
-                    className={css(ST.srOnly)}
-                    htmlFor={`name-${i}`}
-                >
-                    Name
-                </label>
-                <input
-                    id={`name-${i}`}
-                    className={css(ST.input)}
-                    type="text"
-                    placeholder="Name"
-                    value={users[i].name}
-                    onChange={(event) => {
-                        users[i].name = event.target.value;
-                        this.setState({
-                            users: users,
-                        });
-                    }}
-                />
-                <label
-                    className={css(ST.srOnly)}
-                    htmlFor={`name-${i}`}
-                >
-                    Age
-                </label>
-                <input
-                    id={`age-${i}`}
-                    className={css(ST.input)}
-                    type="text"
-                    placeholder="Age"
-                    value={users[i].age}
-                    onChange={(event) => {
-                        users[i].age = event.target.value;
-                        this.setState({
-                            users: users,
-                        });
-                    }}
-                />
-                {i > 0 && <button
-                    type="button"
-                    className={css(ST.removeRow)}
-                    onClick={() => {
-                        users.splice(i, 1);
-                        this.setState({
-                            users: users,
-                        });
-                    }}
-                >
-                    &times;
-                </button>}
-            </div>);
-        }
         return <form
             className={css(ST.form)}
             onSubmit={this.handleSubmit}
@@ -148,29 +86,9 @@ const SignupForm = React.createClass({
                     <div>
                         If you don't have an iPad or iPhone let us know what
                         devices you do have and we'll let you know when
-                        your device is supported.
+                        your device is supported!
                     </div>
                 </div>
-            </div>
-            <div className={css(ST.formTitleRow)}>
-                Who will use this app?
-            </div>
-            {userRows}
-            <div className={css(ST.formRow)}>
-                <button
-                    className={css(ST.button, ST.smallButton)}
-                    type="button"
-                    onClick={() => {
-                        this.setState({
-                            users: users.concat([{
-                                name: "",
-                                age: "",
-                            }]),
-                        });
-                    }}
-                >
-                    + Add another person
-                </button>
             </div>
             <div className={css(ST.formTitleRow)}>
                 Would you like to give feedback about the app?
